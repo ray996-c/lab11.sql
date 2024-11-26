@@ -17,3 +17,18 @@ FROM assignments
 WHERE status = 'Completed';
 SELECT * FROM courses;
 SELECT * FROM assignments
+
+-- Count the total number of assignments with a status of "Not Started"
+SELECT count(*) AS not_started_count
+FROM assignments
+WHERE status = 'Not Started';
+-- Find courses with lab sessions on Tuesday
+SELECT course_id, course_name
+FROM courses
+WHERE lab_days LIKE 'Tue%';
+-- Join the Courses and Assignments tables on course_id
+SELECT c.course_id, c.course_name, a.title, a.due_date, a.status
+FROM courses c
+JOIN assignments a 
+  ON c.course_id = a.course_id;
+
