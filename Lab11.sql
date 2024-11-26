@@ -22,10 +22,7 @@ SELECT * FROM assignments
 SELECT count(*) AS not_started_count
 FROM assignments
 WHERE status = 'Not Started';
--- Find courses with lab sessions on Tuesday
-SELECT course_id, course_name
-FROM courses
-WHERE lab_days LIKE 'Tue%';
+
 -- Join the Courses and Assignments tables on course_id
 SELECT c.course_id, c.course_name, a.title, a.due_date, a.status
 FROM courses c
